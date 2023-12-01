@@ -11,8 +11,13 @@ public class CTRLFeriado {
 	public static void lerEApresentarData(String nomeFeriado) throws IllegalArgumentException {
     	String os = System.getProperty("os.name");
         try {
-        	FileReader fileReader = new FileReader("/tmp/hol.json");
-        	if(!os.equals("Linux")) fileReader = new FileReader("C://TEMP/hol.json");
+        FileReader fileReader;
+
+        	if (!os.equals("Linux")) {
+        	    fileReader = new FileReader("C:\\TEMP\\hol.json");
+        	} else {
+        	    fileReader = new FileReader("/tmp/hol.json");
+        	}
         	
             StringBuilder content = new StringBuilder();
             int data;
